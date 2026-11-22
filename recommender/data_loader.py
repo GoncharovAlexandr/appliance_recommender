@@ -37,10 +37,10 @@ def load_products():
     return products
 
 
-def load_ratings():
+def load_ratings(path=None):
     """Загрузка оценок пользователей."""
 
-    path = DATA_DIR / "ratings.csv"
+    path = Path(path) if path is not None else DATA_DIR / "ratings.csv"
 
     if not path.exists():
         raise FileNotFoundError(
